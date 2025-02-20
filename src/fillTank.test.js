@@ -19,7 +19,7 @@ describe('fillTank', () => {
     expect(fillTank).toBeInstanceOf(Function);
   });
 
-  it(`should fill full tank if the 'amount' is not given`, () => {
+  it(`should fill full tank if no 'amount' given`, () => {
     fillTank(customer, 2);
 
     expect(customer).toEqual({
@@ -56,13 +56,13 @@ describe('fillTank', () => {
   });
 
   it('should round the poured amount to the tenth part', () => {
-    fillTank(customer, 3.74, 11);
+    fillTank(customer, 3.74, 11.58);
 
     expect(customer).toEqual({
-      money: 258.86,
+      money: 256.99,
       vehicle: {
         maxTankCapacity: 40,
-        fuelRemains: 19,
+        fuelRemains: 19.5,
       },
     });
   });
